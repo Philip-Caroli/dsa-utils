@@ -1,0 +1,20 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+     - "8081:8081"
+    environment:
+      - VIRTUAL_HOST=dsa.caroli.cc
+      - VIRTUAL_NETWORK=nginx-proxy
+      - VIRTUAL_PORT=8081
+      - LETSENCRYPT_HOST=dsa.caroli.cc
+      - LETSENCRYPT_EMAIL=philip@caroli.de
+
+networks:
+  default:
+    external:
+      name: webproxy
+
+
+
